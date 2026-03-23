@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Srini Sir!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap');
+
+        :root {
+            --primary: #ff0055;
+            --secondary: #00ccff;
+            --accent: #ffcc00;
+            --dark: #0a0a0a;
+            --text: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark);
+            color: var(--text);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Background Animation */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration) linear infinite;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0; transform: translateY(0); }
+            50% { opacity: 1; }
+            100% { opacity: 0; transform: translateY(-100vh); }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 50px 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Header / Hero */
+        header {
+            margin-bottom: 60px;
+            animation: fadeInDown 1.5s ease-out;
+        }
+
+        h1 {
+            font-size: 5rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin: 0;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #ccc;
+            margin-top: 10px;
+            font-weight: 300;
+        }
+
+        .roles {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .role-badge {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s, background 0.3s;
+            cursor: default;
+        }
+
+        .role-badge:hover {
+            transform: translateY(-5px) scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--secondary);
+            box-shadow: 0 0 20px var(--secondary);
+        }
+
+        /* Gallery */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 60px 0;
+            perspective: 1000px;
+        }
+
+        .frame {
+            position: relative;
+            height: 400px;
+            width: 300px; /* Set a base width */
+            flex: 1 1 300px; /* Allow flex */
+            max-width: 350px; /* Don't stretch too wide */
+            background: #222;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.5s, box-shadow 0.5s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .frame:hover {
+            transform: translateY(-10px) scale(1.02); /* Simpler hover effect that keeps alignment better */
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            z-index: 5;
+            border-color: var(--primary);
+        }
+
+        .frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Changed from cover to contain to show full image */
+            transition: transform 0.5s;
+            background-color: #000; /* Dark background for letterboxed images */
+        }
+        
+        .frame:hover img {
+            transform: scale(1.05); /* Reduced scale to prevent cutting during zoom */
+        }
+
+        .frame-placeholder {
+            font-size: 1.2rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            text-align: left;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .frame:hover .caption {
+            transform: translateY(0);
+        }
+
+        /* Wishes Section */
+        .wishes-section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 50px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            margin: 50px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .wishes-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--accent);
+        }
+
+        .message {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .signatories {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .late-wish {
+            margin-top: 50px;
+            font-size: 1rem;
+            color: #888;
+            font-style: italic;
+            animation: pulse 2s infinite;
+        }
+
+        /* Button */
+        .celebrate-btn {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.5rem;
+            color: white;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(255, 0, 85, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .celebrate-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 50px rgba(255, 0, 85, 0.6);
+        }
+
+        /* Confetti Canvas */
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+
+        /* Intro Overlay */
+        #intro-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--dark);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 1s ease-out;
+        }
+
+        .intro-content {
+            text-align: center;
+            padding: 20px;
+        }
+
+        #intro-text {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+            line-height: 1.2;
+        }
+
+        #reveal-btn {
+            padding: 15px 40px;
+            font-size: 1.5rem;
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            opacity: 0;
+            animation: fadeIn 1s 1s forwards;
+        }
+
+        #reveal-btn:hover {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 0 20px var(--primary);
+        }
+
+        .hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            .roles { flex-direction: column; align-items: center; }
+            .signatories { flex-direction: column; gap: 10px; }
+            
+            .frame {
+                width: 100%;
+                max-width: 100%;
+                height: 300px; /* Reducing height for mobile */
+                flex: 1 1 100%; /* Full width on mobile */
+            }
+
+            #intro-text { font-size: 2rem; }
+            .wishes-section { padding: 30px 20px; }
+            .message { font-size: 1.1rem; }
+        }
+
+        /* Surprise Overlay */
+        #surprise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.95);
+            z-index: 3000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.5s forwards;
+        }
+        
+        #surprise-img {
+            max-width: 90%;
+            max-height: 60vh;
+            border-radius: 20px;
+            box-shadow: 0 0 50px var(--primary);
+            animation: zoomIn 0.5s;
+        }
+
+        #surprise-text {
+            font-size: 3rem;
+            margin-top: 30px;
+            color: var(--accent);
+            text-transform: uppercase;
+            font-weight: 900;
+            text-shadow: 0 0 20px var(--accent);
+            animation: pulse 0.5s infinite;
+            text-align: center;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+
+    </style>
+</head>
+<body>
+    
+    <!-- Audio Element -->
+    <audio id="bg-music" loop>
+        <source src="The Paradise - Aaya Sher Song.mp3" type="audio/mpeg">
+        your browser does not support the audio element.
+    </audio>
+    
+    <!-- Surprise Audio -->
+    <audio id="surprise-music">
+        <source src="special_song.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Intro Overlay -->
+    <div id="intro-overlay">
+        <div class="intro-content">
+            <h1 id="intro-text">Do you know what special day it is today?</h1>
+            <p id="suspense-text" style="font-size: 1.5rem; color: #ccc; opacity: 0; transition: opacity 1s; margin-bottom:20px;"></p>
+            <button id="reveal-btn" onclick="revealSequence()">Tell me!</button>
+        </div>
+    </div>
+    
+    <!-- Surprise Overlay -->
+    <div id="surprise-overlay">
+        <img id="surprise-img" src="pic4.png" alt="Special Birthday Boy">
+        <div id="surprise-text">SPECIAL BIRTHDAY BOY! 🎉</div>
+    </div>
+
+    <div class="stars" id="star-container"></div>
+    <canvas id="confetti-canvas"></canvas>
+
+    <div class="container">
+        <header>
+            <div class="subtitle">CALIBO AI ACADEMY PRESENTS</div>
+            <h1>Happy Birthday<br>Srini Sir</h1>
+            <div class="subtitle">Srinivasa Rao Palatheerdham</div>
+            
+            <div class="roles">
+                <div class="role-badge">🧠 AI/ML Trainer</div>
+                <div class="role-badge">📸 Photographer</div>
+                <div class="role-badge">😂 Good Humor</div>
+                <div class="role-badge">🎓 Mentor</div>
+            </div>
+        </header>
+
+        <section class="gallery">
+            <div class="frame">
+                <!-- Replace src with actual image path or keep placeholder -->
+                <img src="pic1.jpeg" alt="Srini Sir Photo 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="frame-placeholder" style="display:none; height:100%; width:100%; align-items:center; justify-content:center; flex-direction:column;">
+                    <span>Add pic1.jpeg here</span>
+                    <span style="font-size:3rem;">📸</span>
+                </div>
+                <div class="caption">The Visionary Photographer</div>
+            </div>
+            <div class="frame">
+                <img src="pic2.jpeg" alt="Srini Sir Photo 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="frame-placeholder" style="display:none; height:100%; width:100%; align-items:center; justify-content:center; flex-direction:column;">
+                    <span>Add pic2.jpeg here</span>
+                    <span style="font-size:3rem;">🤖</span>
+                </div>
+                <div class="caption">The AI Expert</div>
+            </div>
+            <div class="frame">
+                <img src="pic3.jpeg" alt="Srini Sir Photo 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="frame-placeholder" style="display:none; height:100%; width:100%; align-items:center; justify-content:center; flex-direction:column;">
+                    <span>Add pic3.jpeg here</span>
+                    <span style="font-size:3rem;">🎉</span>
+                </div>
+                <div class="caption">The Fun Mentor</div>
+            </div>
+        </section>
+
+        <section class="wishes-section">
+            <h2>Dearest Sir</h2>
+            <p class="message">
+                Wishing you a birthday as spectacular as your photography and as intelligent as your algorithms! 
+                Thank you for guiding us through the complex world of AI with patience and humor. 
+                May your loss function always be minimized and your happiness maximized!
+            </p>
+            
+            <div class="signatories">
+                <div>From: Jagan Sir</div>
+                <div>Sai Teja Sir</div>
+                <div>& The 50 Students of Calibo AI</div>
+            </div>
+
+            <p class="late-wish">
+                (Apologies for the slightly high latency in our wishes packet transmission! 😅 Happy Belated Birthday!)
+            </p>
+
+            <button class="celebrate-btn" onclick="startSurprise()">Click for Surprise 🎉</button>
+        </section>
+
+        <footer>
+            <p style="font-size: 0.8rem; color: #555;">Made with ❤️ by your Calibo Students</p>
+        </footer>
+    </div>
+
+    <script>
+        function startSurprise() {
+            const surpriseOverlay = document.getElementById('surprise-overlay');
+            const bgMusic = document.getElementById('bg-music');
+            const surpriseImg = document.getElementById('surprise-img');
+            
+            // Restart audio from beginning
+            bgMusic.currentTime = 0;
+            bgMusic.play().catch(e => console.log("Audio play failed"));
+            
+            // Show overlay
+            surpriseOverlay.style.display = 'flex';
+            
+            let showPic4 = true;
+            // Alternate images
+            const interval = setInterval(() => {
+                if (showPic4) {
+                    surpriseImg.src = 'pic5.png';
+                } else {
+                    surpriseImg.src = 'pic4.png';
+                }
+                showPic4 = !showPic4;
+            }, 500); // Change every 0.5s for "dance" effect
+
+            // Stop after 10 seconds
+            setTimeout(() => {
+                clearInterval(interval);
+                surpriseOverlay.style.display = 'none';
+                // Music continues playing
+            }, 10000); // 10 seconds duration
+            
+            fireConfetti();
+        }
+
+        function revealSequence() {
+            const overlay = document.getElementById('intro-overlay');
+            const heading = document.getElementById('intro-text');
+            const suspense = document.getElementById('suspense-text');
+            const btn = document.getElementById('reveal-btn');
+            // const audio = document.getElementById('bg-music');
+
+            // Audio removed from start as requested
+            // audio.volume = 0.5;
+            // audio.play().catch(e => console.log("Audio play failed (user interaction needed): ", e));
+            
+            // Step 1: Hide button
+            btn.style.display = 'none';
+            heading.style.opacity = '0';
+            
+            // Step 2: Suspense Text
+            setTimeout(() => {
+                heading.innerHTML = "To be honest...";
+                heading.style.opacity = '1';
+                
+                setTimeout(() => {
+                    suspense.innerHTML = "We didn't know until this evening either! 😅";
+                    suspense.style.opacity = '1';
+                }, 1500);
+
+                setTimeout(() => {
+                    heading.style.opacity = '0';
+                    suspense.style.opacity = '0';
+                }, 4000);
+
+                // Step 3: The Reveal
+                setTimeout(() => {
+                    heading.innerHTML = "But now we know it's our Trainer<br><span style='color: var(--primary); font-size: 4rem; text-shadow: 0 0 20px var(--primary);'>Srini Sir's Birthday!</span><br>🎉🎂🎈";
+                    suspense.style.display = 'none';
+                    heading.style.transform = "scale(1.2)";
+                    heading.style.transition = "transform 0.5s ease-out";
+                    heading.style.opacity = '1';
+
+                    // Final Fade out
+                    setTimeout(() => {
+                        overlay.classList.add('hidden');
+                        setTimeout(() => {
+                            window.scrollTo(0, 0); // Scroll to top
+                            overlay.style.display = 'none';
+                            fireConfetti(); 
+                        }, 1000);
+                    }, 4000); // Time to read the big reveal
+                }, 5000);
+
+            }, 1000);
+        }
+
+        // Star Background Generation
+        const starContainer = document.getElementById('star-container');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.top = `${Math.random() * 100}%`;
+            star.style.setProperty('--duration', `${Math.random() * 3 + 2}s`);
+            starContainer.appendChild(star);
+        }
+
+        // Confetti Logic
+        const canvas = document.getElementById('confetti-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particles = [];
+        const colors = ['#ff0055', '#00ccff', '#ffcc00', '#ffffff', '#00ff00'];
+
+        function Particle(x, y) {
+            this.x = x;
+            this.y = y;
+            this.size = Math.random() * 10 + 5;
+            this.speedX = Math.random() * 6 - 3;
+            this.speedY = Math.random() * -10 - 5;
+            this.color = colors[Math.floor(Math.random() * colors.length)];
+            this.gravity = 0.2;
+            this.rotation = Math.random() * 360;
+            this.rotationSpeed = Math.random() * 10 - 5;
+        }
+
+        Particle.prototype.update = function() {
+            this.speedY += this.gravity;
+            this.x += this.speedX;
+            this.y += this.speedY;
+            this.rotation += this.rotationSpeed;
+            
+            if (this.size > 0.2) this.size -= 0.05;
+        }
+
+        Particle.prototype.draw = function() {
+            ctx.save();
+            ctx.translate(this.x, this.y);
+            ctx.rotate(this.rotation * Math.PI / 180);
+            ctx.fillStyle = this.color;
+            ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+            ctx.restore();
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                if (particles[i].size <= 0.2) {
+                    particles.splice(i, 1);
+                    i--;
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        function fireConfetti() {
+            for (let i = 0; i < 200; i++) {
+                particles.push(new Particle(canvas.width / 2, canvas.height / 1.5));
+            }
+        }
+
+        animate();
+
+        // Fire on load automatically
+        setTimeout(fireConfetti, 1000);
+
+        window.addEventListener('resize', () => {
+             canvas.width = window.innerWidth;
+             canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
